@@ -1,0 +1,23 @@
+.task-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-list__item {
+  border: 1px solid black;
+  padding: 8px;
+  margin-bottom: 30px;
+}
+
+
+#validation-input {
+  border: 3px solid #bdbdbd;
+}
+
+#validation-input.valid {
+  border-color: #4caf50;
+}
+
+#validation-input.invalid {
+  border-color: #f44336;
+}
