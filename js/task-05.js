@@ -4,11 +4,11 @@ const nameInput = document.getElementById("name-input");
 const nameOutput = document.getElementById("name-output");
 
 nameInput.addEventListener('focus', (event) => {
-  window.addEventListener("keyup", outName);
+  nameInput.addEventListener("input", outName);
 });
 
 function outName({key}) {
-  const name = nameInput.value;
-  nameOutput.textContent = `${name}`;
+  if (nameInput.value) nameOutput.textContent = `${nameInput.value}`;
+  else nameOutput.textContent = `незнакомец`;
 }
 

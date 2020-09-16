@@ -4,9 +4,7 @@ const controls = document.getElementById("controls");
 const boxes = document.getElementById("boxes");
 const [input] = controls.getElementsByTagName("input");
 
-function getRandom(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
+const getRandom = (max) => Math.floor(Math.random() * Math.floor(max));
 
 const createBoxes = (amount,size = 30) => {
   for (let i = 0; i < amount; i++) {
@@ -18,12 +16,11 @@ const createBoxes = (amount,size = 30) => {
   }
 }
 
-const destroyBoxes = () => {
-  [...boxes.children].forEach(box => box.remove());  
-}
+const destroyBoxes = () => [...boxes.children].forEach(box => box.remove());
+
+input.addEventListener('input', (e) => input.value = input.value > 100 ? 100 : input.value)
 
 controls.addEventListener('click', (event) => {
-  const amount = input.value;
-  event.target.dataset.action === 'render' ? createBoxes(amount) : 
+  event.target.dataset.action === 'render' ? createBoxes(input.value) : 
   event.target.dataset.action === 'destroy' ? destroyBoxes() : '';
 });
